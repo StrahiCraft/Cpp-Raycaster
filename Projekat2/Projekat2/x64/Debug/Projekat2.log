@@ -1,3 +1,6 @@
-﻿  Main.cpp
-LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+﻿  Player.cpp
+E:\Fakultet\CS130\Projekat2\Cpp-Raycaster\Projekat2\Projekat2\Player.cpp(48,52): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+E:\Fakultet\CS130\Projekat2\Cpp-Raycaster\Projekat2\Projekat2\Player.cpp(48,30): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+E:\Fakultet\CS130\Projekat2\Cpp-Raycaster\Projekat2\Projekat2\Player.cpp(51,42): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+E:\Fakultet\CS130\Projekat2\Cpp-Raycaster\Projekat2\Projekat2\Player.cpp(51,27): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
   Projekat2.vcxproj -> E:\Fakultet\CS130\Projekat2\Cpp-Raycaster\Projekat2\x64\Debug\Projekat2.exe

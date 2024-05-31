@@ -1,7 +1,6 @@
 #include "Player.h"
+#include "Map.h"
 #include <math.h>
-#include <iostream>
-#include <string>
 
 Player::Player() {
 	position = Vector2();
@@ -21,15 +20,13 @@ Player::Player(Vector2 position, float rotation, float fov, float speed, float r
 
 void Player::HandleInput() {
 	if (IsKeyDown(KEY_A)) {
-		rotation -= rotationSpeed * GetFrameTime();
-		DrawRectangle(0, 0, 10, 10, BLUE);
+		rotation += rotationSpeed * GetFrameTime();
 	}
 	if (IsKeyDown(KEY_D)) {
-		rotation += rotationSpeed * GetFrameTime();
-		DrawRectangle(0, 0, 10, 10, BLUE);
+		rotation -= rotationSpeed * GetFrameTime();
 	}
 	if (rotation < 0) {
-		rotation = 360 - rotation;
+		rotation = 360;
 	}
 	if (rotation > 360) {
 		rotation -= 360;
@@ -37,27 +34,27 @@ void Player::HandleInput() {
 
 	if (IsKeyDown(KEY_W)) {
 		Move(1);
-		DrawRectangle(0, 0, 10, 10, BLUE);
 	}
 	if (IsKeyDown(KEY_S)) {
 		Move(-1);
-		DrawRectangle(0, 0, 10, 10, BLUE);
 	}
 }
 
 void Player::Move(int direction) {
-	position.x += sin(rotation) * direction * speed * GetFrameTime();
-	position.y += cos(rotation) * direction * speed * GetFrameTime();
+	Vector2 movement;
+	movement.x = sin(rotation) * direction * speed * GetFrameTime();
+	movement.y = cos(rotation) * direction * speed * GetFrameTime();
 
-	std::string message = "X = " + std::to_string(position.x) + " Y = " + std::to_string(position.y);
-	DrawText(message.c_str(), 100, 100, 20, BLUE);
-
-	// check for collision, move back if colliding
+	if (!Map::IsWall(position.x + movement.x, position.y)) {
+		position.x += movement.x;
+	}
+	if (!Map::IsWall(position.x, position.y + movement.y)) {
+		position.y += movement.y;
+	}
 }
 
 Vector2 Player::GetPosition()
 {
-	
 	return position;
 }
 

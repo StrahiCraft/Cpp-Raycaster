@@ -24,7 +24,7 @@ void MinimapRenderer::RenderGame() {
 	DrawRectangle(playerPos.x * pixelSize + pixelSize / 4, playerPos.y * pixelSize + pixelSize / 4, pixelSize / 2, pixelSize / 2, RED);
 
 	// Draws player look direction
-	DrawLine(playerPos.x * pixelSize + pixelSize / 4, playerPos.y * pixelSize + pixelSize / 4,
-		playerPos.x * pixelSize + pixelSize / 2 + sin((*player).GetRotation()),
-		playerPos.y * pixelSize + pixelSize / 2 + cos((*player).GetRotation()), GREEN);
+	DrawLine(playerPos.x * pixelSize + pixelSize / 2, playerPos.y * pixelSize + pixelSize / 2,
+		playerPos.x * pixelSize + pixelSize / 2 + pixelSize * sin((*player).GetRotation()),
+		playerPos.y * pixelSize + pixelSize / 2 + pixelSize * cos((*player).GetRotation()), GREEN);
 }
