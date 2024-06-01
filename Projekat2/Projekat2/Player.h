@@ -17,6 +17,7 @@ public:
 	void Move(int direction); // 1 for foreward -1 for backward
 	Vector2 GetPosition();
 	float GetRotation();
+	float GetFov();
 };
 
 #endif // !PLAYER_H_

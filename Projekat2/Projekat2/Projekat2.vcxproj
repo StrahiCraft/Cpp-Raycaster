@@ -131,6 +131,7 @@
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="MinimapRenderer.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="RaycastRenderer.cpp" />
     <ClCompile Include="Renderer.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -140,6 +141,7 @@
     <ClInclude Include="Map.h" />
     <ClInclude Include="MinimapRenderer.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="RaycastRenderer.h" />
     <ClInclude Include="Renderer.h" />
   </ItemGroup>
   <ItemGroup>

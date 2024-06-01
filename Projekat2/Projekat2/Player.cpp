@@ -20,16 +20,10 @@ Player::Player(Vector2 position, float rotation, float fov, float speed, float r
 
 void Player::HandleInput() {
 	if (IsKeyDown(KEY_A)) {
-		rotation += rotationSpeed * GetFrameTime();
+		rotation += rotationSpeed * GetFrameTime() * GetFrameTime();
 	}
 	if (IsKeyDown(KEY_D)) {
-		rotation -= rotationSpeed * GetFrameTime();
-	}
-	if (rotation < 0) {
-		rotation = 360;
-	}
-	if (rotation > 360) {
-		rotation -= 360;
+		rotation -= rotationSpeed * GetFrameTime() * GetFrameTime();
 	}
 
 	if (IsKeyDown(KEY_W)) {
@@ -46,10 +40,10 @@ void Player::Move(int direction) {
 	movement.y = cos(rotation) * direction * speed * GetFrameTime();
 
 	if (!Map::IsWall(position.x + movement.x, position.y)) {
-		position.x += movement.x;
+		position.x += movement.x * GetFrameTime();
 	}
 	if (!Map::IsWall(position.x, position.y + movement.y)) {
-		position.y += movement.y;
+		position.y += movement.y * GetFrameTime();
 	}
 }
 
@@ -60,4 +54,8 @@ Vector2 Player::GetPosition()
 
 float Player::GetRotation() {
 	return rotation;
+}
+
+float Player::GetFov() {
+	return fov;
 }

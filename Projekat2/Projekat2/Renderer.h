@@ -8,6 +8,7 @@ class Renderer {
 protected:
 	int pixelSize;
 	Player *player;
+	Vector2 playerPos;
 public:
 	Renderer(int pixelSize, Player* player);
 	virtual void RenderGame() = 0;
