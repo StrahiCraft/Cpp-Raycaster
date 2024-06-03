@@ -12,7 +12,11 @@ void MinimapRenderer::RenderGame() {
 	for (int x = 0; x < mapWidth; x++) {
 		for (int y = 0; y < mapHeight; y++) {
 			if (Map::IsWall(x, y)) {
-				DrawRectangle(x * pixelSize, y * pixelSize, pixelSize, pixelSize, WHITE);
+				DrawRectangle(x * pixelSize, y * pixelSize, pixelSize, pixelSize, Map::GetWallColor(x, y));
+			}
+			else
+			{
+				DrawRectangle(x * pixelSize, y * pixelSize, pixelSize, pixelSize, DARKGRAY);
 			}
 		}
 	}
@@ -30,7 +34,7 @@ void MinimapRenderer::RenderGame() {
 	int rayCount = GetScreenWidth() / pixelSize;;
 
 	for (int i = 0; i < rayCount; i++) {
-		float currentRayAngle = (*player).GetRotation() + 2 / playerFov - ((float)i * pixelSize / (float)GetScreenWidth()) + 0.5;
+		float currentRayAngle = (*player).GetRotation() + 2 / playerFov - ((float)i * pixelSize / (float)GetScreenWidth()) + 0.45;
 		
 		DrawLine(playerPos.x * pixelSize + pixelSize / 2, playerPos.y * pixelSize + pixelSize / 2,
 			playerPos.x * pixelSize + pixelSize / 2 + pixelSize * sin(currentRayAngle),

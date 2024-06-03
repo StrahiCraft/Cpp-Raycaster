@@ -11,14 +11,17 @@ class Map {
 private:
 	static int width;
 	static int height;
-	static bool* map;
 	static Vector2 playerSpawn;
-	// TODO add an array that holds color and texture info of map positions
-
+	static Color* mapColors;
 public:
+	static bool* map;
 	static void SetupMap(string mapName);
+	static void SaveMap(string name);
 	static bool IsWall(int x, int y);
+	static Color GetWallColor(int x, int y);
+	static void SetWallColor(int x, int y, Color color);
 	static Vector2 GetPlayerSpawn();
+	static void SetPlayerSpawn(Vector2 value);
 	static int GetWidth();
 	static int GetHeight();
 };

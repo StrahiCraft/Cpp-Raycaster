@@ -18,6 +18,8 @@ public:
 	Vector2 GetPosition();
 	float GetRotation();
 	float GetFov();
+
+	void SetPosition(Vector2 newPosition);
 };
 
 #endif // !PLAYER_H_

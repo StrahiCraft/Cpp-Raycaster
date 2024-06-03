@@ -59,3 +59,7 @@ float Player::GetRotation() {
 float Player::GetFov() {
 	return fov;
 }
+
+void Player::SetPosition(Vector2 newPosition) {
+	position = newPosition;
+}
